@@ -49,7 +49,7 @@ function coursesData(){
 fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Courses.json`)
 .then(data =>
 
-// console.log(data))
+console.log(data))
     
     {
 
