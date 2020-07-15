@@ -5,77 +5,94 @@ let user = document.getElementById('user');
 let coursesBtn = document.getElementById('courses');
 let newStudentBtn = document.getElementById('new_student');
 
-
-
 function fetchData(url) {
     return fetch(url).then(res => res.json())
 }
 
 function mystudentData() {
-             
-    // e.preventDefault();
+
+        // Hide and Show content when the user click the button   
+        if (user.style.display =='none'){
+            user.style.display = 'block';
+
+        }else {
+            user.style.display ='none';
+            
+        }
 
      fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json`)
-     .then(data => {
+     .then(data => 
+        {
+            students = data;
+            let myHTML ='';
+         for(let i =0; i< data.length ; i ++){
+             writeStundentData(data[i]);
+         }
+         })
+        }
 
-//  create a variable to store HTML
+  function writeStundentData(student){
 
-            let li =`<tr><th scope "col">id</th>
-                         <th  scope "col">last_name</th>
-                         <th  scope "col">name</th>
-                         <th  scope "col">status</th>
-                    </tr>`;  
+       let user = document.getElementById('user');
 
-// loop through each data and add a table row
+       let myHTML = `<li>${student.name} ${student.last_name}`;
+       if(student.status === true) {
+           myHTML += `<span class="active"></span>`;
+       }else{
+          myHTML += `<span class="nonactive"></span>`;
+       }
 
-            data.forEach(data => { 
-                li +=`<tr>
-                      <td>${data.id}</td>
-                      <td>${data.last_name}</td>
-                      <td>${data.name}</td>
-                      <td>${data.status}</td>
-                     </tr>`;
-                
-            });
+        myHTML +=`<div class= "mt-4"><div>`;
+        myHTML +=`<button type="button" class= "btn btn-outline-info" id="addbtn" >Add Course<button>`;
+        myHTML +=`<button type="button" class= "btn btn-outline-info" id="addbtn" >Edit Information<button>`;
+        myHTML += `</div></li>`;
 
-            user.innerHTML = li ;
-            user.style = "Color: pink";
-})
+       return  user.innerHTML = myHTML;
 }
-
-
+    
 function coursesData(){
 
+    
 fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Courses.json`)
-.then(data =>
-
-console.log(data))
+.then(data => 
+    
+    // console.log(data));
     
     {
 
 //  create a variable to store HTML
 
             let li =`<tr>
-                         <th>Id</th>
+                        <th>Name</th>
                          <th>Duration</th>
-                         <th>Name</th>
+                     
                     
                     </tr>`;  
 // loop through each data and add a table row
             data.forEach(data => { 
                 li +=`<tr>
                    
-                      <td>${data.id}</td>
-                      <td>${data.duration}</td>
                       <td>${data.name}</td>
+                      <td>${data.duration}</td>
+                    
                      </tr>`;
                 
             });
 
-         courses.innerHTML = li ;
+            stuCourses.innerHTML = li ;
+         
+         
 })
+//    Hide and Show content when the user click the button
+if (stuCourses.style.display =='none') {
+    stuCourses.style.display = 'block';
+
+}else {
+    stuCourses.style.display ='none';
+}
 }
 
-
 studentsBtn.addEventListener('click',mystudentData);
-coursesBtn.addEventListener("click",coursesData);
+coursesBtn.addEventListener('click',coursesData);
+
+

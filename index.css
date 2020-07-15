@@ -3,11 +3,19 @@
   margin: auto;
   margin-top: 2%;
   text-align: center;
+
 }
+
 .table{
-  background:gray;
+  background:white;
 }
 
 .course{
   background:green;
+}
+.active {
+  color:green;
+}
+.nonactive {
+  color:red;
 }
