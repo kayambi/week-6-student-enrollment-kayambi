@@ -19,3 +19,18 @@
 .nonactive {
   color:red;
 }
+.container{
+  display: block;
+}
+
+.list-group{
+  display: block;
+}
+
+li span{
+  display: block;
+} 
+.list-group-horizontal{
+  display: inline-block;
+}
+

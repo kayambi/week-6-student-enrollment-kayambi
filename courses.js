@@ -77,6 +77,39 @@ studentsBtn.addEventListener('click',generateStudentData)
 
                             
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
             
     // const html = data.map(data =>{
     //     return `
