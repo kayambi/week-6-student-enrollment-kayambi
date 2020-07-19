@@ -77,75 +77,42 @@ studentsBtn.addEventListener('click',generateStudentData)
 
                             
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+    const html = data.map(data =>{
+        return `
+        <table class ="table" >
+        <td>${data.name}</td>
+        <td>${data.last_name}</td>
+        <td>${data.status}</td>  
         
-            
-    // const html = data.map(data =>{
-    //     return `
-    //     <table class ="table" >
-    //     <td>${data.name}</td>
-    //     <td>${data.last_name}</td>
-    //     <td>${data.status}</td>  
-        
-    //     </table>
-    //     `;     
+        </table>
+        `;     
 
-    // }).join('');
-    // console.log(html)
-    // document.getElementById('user').insertAdjacentHTML("beforeend",html)
+        }).join('');
+        console.log(html)
+        document.getElementById('user').insertAdjacentHTML("beforeend",html)
 
 // generate Courses Data 
 // AddEvent Listiner
 
-// coursesBtn.addEventListener('click',generateCourseData)
-// function  generateCourseData (data){
+coursesBtn.addEventListener('click',generateCourseData)
+function  generateCourseData (data){
 
 //  create a variable to store HTML
 
-    // let li =`<tr>
-    // <th>Name</th>
-    //  <th>Duration</th>
-    //             </tr>`;  
-    //     // loop through each data and add a table row
+    let li =`<tr>
+    <th>Name</th>
+     <th>Duration</th>
+                </tr>`;  
+        // loop through each data and add a table row
 
-    //     for (let i=0; i<data.length ; i++){
-    //     li +=`<tr>
+        for (let i=0; i<data.length ; i++){
+        li +=`<tr>
 
-    //     <td>${data.name}</td>
-    //     <td>${data.duration}</td>
-    //     </tr>`;
-    //        }
-    //         user.innerHTML = li ;
-    //         }
-    //     }
+        <td>${data.name}</td>
+        <td>${data.duration}</td>
+        </tr>`;
+           }
+            user.innerHTML = li ;
+            }
+        
