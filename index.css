@@ -33,10 +33,18 @@ li span{
 .list-group-horizontal{
   display: inline-block;
 }
-.active{
-  color:green
-}
-.nonactive{
-  color:red;
-}
 
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color:green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.doty {
+  height: 20px;
+  width: 20px;
+  background-color:red;
+  border-radius: 50%;
+  display: inline-block;
+}
