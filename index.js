@@ -26,19 +26,17 @@ function checkStatus(response){
     }
 }
 
-
-
    //   Add function to add display courses and adding them
    // Add EvenListiner to addbtn courses . once  the click the button , available data should be displayed then put option to shooses 
   // what daya to select. 
 
     function addCoursesToStudent(student,course) { 
 
-        return `Hello `
-        
-        const targetStudent = students.find((s) => s.id === student.id);
-        targetStudent.courses.push(course);
-        studentList.innerHTML = students.map(studentToList).join('')
+    
+        // const targetStudent = students.find((s) => s.id === student.id);
+        // targetStudent.courses.push(course);
+        // studentList.innerHTML = students.map(studentToList).join('')
+        // return course;
      
  } 
 
@@ -59,9 +57,9 @@ return "Holla"
 //  Change status color to be green if the status is true,  
 // Change color color to be red if the status is false;
 function changeStatusColor(student){ 
-    let x="green";
-    let y="red";
-    return (student === true ? x : y);
+    let isActive= `<span class="dot"></span>`;
+    let isnotActive= `<span class="doty"></span>`;
+    return (student === true ? isActive : isnotActive);
     
 }
 
@@ -137,7 +135,7 @@ function coursesData(){
                         <li class="list-group-item display-inline  border border-primary">
                          <div class ="col">${course.name} ${course.duration} 
                          </div><hr>
-                         <button type="button" class="btn btn-outline-info " id="addbtn">Add Course</button>
+                         <button type="button" class="btn btn-outline-info " id="addbtn">Add Student</button>
                        </li> 
                   </ul></div>
                 </div>
