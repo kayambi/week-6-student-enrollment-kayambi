@@ -1,75 +1,88 @@
- let StudentButton = document.querySelector('.student');
- let studentD = document.querySelector('.user');
+// /  Fetch Data
+var studentBtn = document.getElementById('studentButton');
+var courseBtn = document.getElementById('coursesButton');
+var newStudentBtn = document.getElementById('new_studentButton');
+var resultsContainer = document.getElementById('results');
+var modal = document.getElementById('coursesModal');
 
-
-function fetchData(url){
-    return fetch(url)
-         .then(res => res.json())
-     }
-
-
-
-fetchData("https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Courses.json")
-    .then(data => {
-        
-        // set the storage for courses data
-         localStorage.setItem("courses", JSON.stringify(data));
-
-        //  convert data ito json object
-
-        console.log(data)
+function fetchData(url, keyName = '') {
+    return fetch(url).then(res => res.json()).then(data => {
+        localStorage.setItem(keyName, JSON.stringify(data));
     })
-    
-fetchData("https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json")
-    .then(data =>{
+}
 
-        // set the storage for students data 
+//  get StudentData
 
-        localStorage.setItem("students", JSON.stringify(data));
-        // convert the data into json Object
-        console.log(data)
-    })
-    
-
-//  Write a function that will get students data from local storage and 
-// dispay them to the DOM
-
-
-    StudentButton.addEventListener('click',function(){
-        
-        function getStudents(student){ 
-
-            let  x= localStorage.getItem("students");
-            studentD.innerHTML = x;   
-        
-        }
-
-
-    })
-
- 
-
-//   write a function that will get courses
-
-     function getCourse(course){
-
-        //  toDO
-
-
+function getStudents() {
+    if (!localStorage.getItem('students')) {
+        fetchData('https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json', 'students').finally(listStudents);
+    } else {
+        listStudents();
     }
+}
 
 
-// let  myObject={
-//     name:"kay",
-//     age:34
-// };
+//  Function to clear the container
 
-// let myObject_serialize  = JSON.stringify(myObject)
-// localStorage.setItem('myObject',myObject_serialize);
+function clearContainer() {
+    while (resultsContainer.hasChildNodes()) {
+        resultsContainer.removeChild(resultsContainer.lastChild);
+    }
+}
+//  List of students 
 
-//  START USING OUR Object 
+function listStudents() {
+    clearContainer();
+    let students = JSON.parse(localStorage.getItem('students'));
+    let stuDiv = document.createElement('div');
+    stuDiv.classList += 'row';
+    students.forEach(student => {
+        student.courses = [{}];
+        stuDiv.innerHTML += studentstemplates(student);
+    });
+    resultsContainer.appendChild(stuDiv);
+}
 
-// let myObject_Deserialize = JSON.parse(localStorage.getItem('myObject))
+// list of courses
 
-
-
+function addCourses() {
+    //  the user click he/ she should add course
+    $('#courses-modal').on('show.bs.modal', function (e) {
+    modal.innerText = e.relatedTarget.parentNode.childNodes[1].textContent;
+})
+}
+//  Edit Students
+function editInformation() {}
+// getStudent
+//
+function studentstemplates(student) {
+    return `
+        <div class="col-md-4 mb-3">
+            <div class="student-bloc border border-primary">
+                <div class="student-info">${student.name} ${student.last_name} <span class="dot"
+                    style="background:${student.status ? 'green': 'red'}"></span>
+                </div>
+                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#courses-modal" onclick="addCourses(this)" id="addbtn"
+                ${student.courses.length>= 3 || !student.status ? 'disabled' : ''}
+                onclick=“addCoursesToStudent()“>AddCourses</button>
+                <button type=“button” class=“btn btn-outline-info ” id=“Editbtn” onclick=“editInformation()“>Edit Info</button>
+            </div>
+        </div>
+`;
+}
+//  Get Courses
+function CoursesTemplates(course) {
+    return `
+            <div class="container">
+            <div row align-items -start ><ul class=“list-group list-group=vertical-lg'>
+                    <li class='list-group-item display-inline  border border-primary'>
+                    <div class ='col'>${course.name} ${course.duration}
+                    </div><hr>
+                    <button type='button' class='btn btn-outline-info' id='addbtn'>Add Student</button>
+                </li>
+            </ul></div>
+            </div>
+            </div>
+            </div>
+            `;
+}

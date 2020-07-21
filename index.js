@@ -2,7 +2,7 @@
 let studentsBtn = document.getElementById('students');
 let studentList = document.getElementById('user');
 let coursesBtn = document.getElementById('courses')
-let CoursesList = document.getElementById('stuCourses');
+let user = document.getElementById('user');
 let newStudentBtn = document.getElementById('new_student');
 // Addding data to the HTML 
 
@@ -32,12 +32,9 @@ function checkStatus(response){
 
     function addCoursesToStudent(student,course) { 
 
-    
-        // const targetStudent = students.find((s) => s.id === student.id);
-        // targetStudent.courses.push(course);
-        // studentList.innerHTML = students.map(studentToList).join('')
-        // return course;
-     
+        const targetStudent = students.find((s) => s.id === student.id); 
+
+       
  } 
 
 //  function renderedStudents(){
@@ -102,7 +99,7 @@ function mystudentData() {
      fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json`)
      .then(data =>{ 
 
-        // console.log(data)
+        console.log(data)
 
         students = data;
         studentList.innerHTML = `
@@ -119,11 +116,11 @@ function coursesData(){
 
     //    Hide and Show content when the user click the button
 
-        if (stuCourses.style.display =='none') {
-            stuCourses.style.display = 'block';
+        if (user.style.display =='none') {
+            user.style.display = 'block';
 
         }else {
-            stuCourses.style.display ='none';
+            user.style.display ='none';
         }
         
    // function that collect courses data and map it into the DOM 
@@ -147,10 +144,10 @@ function coursesData(){
 
 fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Courses.json`)
 .then(data =>  {
-        // console.log(data)
+        console.log(data)
         // store data into the courses variables
             courses = data
-            CoursesList.innerHTML = `
+            user.innerHTML = `
                     ${data.map(CoursestoList).join('')}
                     `; 
 });
@@ -160,8 +157,6 @@ fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Cou
 
 studentsBtn.addEventListener('click',mystudentData);
 coursesBtn.addEventListener('click',coursesData);
-
-
 
 
 
