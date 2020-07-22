@@ -4,13 +4,13 @@ let studentList = document.getElementById('user');
 let coursesBtn = document.getElementById('courses')
 let user = document.getElementById('user');
 let newStudentBtn = document.getElementById('new_student');
+
 // Addding data to the HTML 
 
 let addCoursesBtn = document.getElementById("addbtn");
 let edditInfBtn = document.getElementById("Editbtn"); 
 
-let students;
-let courses;
+
 
 function fetchData(url) {
     return fetch(url).then(res => res.json())
@@ -29,22 +29,44 @@ function checkStatus(response){
    //   Add function to add display courses and adding them
    // Add EvenListiner to addbtn courses . once  the click the button , available data should be displayed then put option to shooses 
   // what daya to select. 
+  let students;
+  let courses;
 
-    function addCoursesToStudent(student,course) { 
+//   class school {
+//       constructor(students, courses) {
+//           this.students=students;
+//           this.courses = courses;
+//       }
+//       students =[]
+//       courses =[];
 
+<<<<<<< HEAD
+//       updateStudentName(student,name) {
+//           const targetStudent = this.students.find((d)=> s.id ===student.id);
+//           targetStudent.name = name;
+//           addStudentsHTML()
+//       }
+=======
         const targetStudent = students.find((s) => s.id === student.id); 
 
        
  } 
+>>>>>>> c3608df9cc8ea2e29aa737c5cb1aa89fd0f8de4d
 
-//  function renderedStudents(){
+//   }
 
-//     // toDO
+    function addCoursesToStudent(students,courses) {    
+//         const targetStudent = this.students.find((s) => s.id === student.id);
+//         targetStudent.courses.push(course);
+//         const targetCourse =this.course.find((c) => c.id === course.id)
+//         targetCourse.students.push(student);
 
-//  }
 
 
 //  Edit function  
+
+
+
 
 function editInformation(student, firstName, lastName){
 
@@ -67,22 +89,18 @@ function changeStatusColor(student){
 function studentToList(student){ 
 
 return `
-        <li class="container">
-                <div align-items><ul class="list-group list-group=vertical-lg">
-                    <li class="list-group-item display-inline  border border-primary">
-                     <div>${student.name} ${student.last_name} ${changeStatusColor(student.status)}</div>                                               
-                    <button type="button" class="btn btn-outline-info " id="addbtn">AddCourses:${addCoursesToStudent()}</button>
-                    <button type="button" class="btn btn-outline-info " id="Editbtn">Edit Info:${editInformation()}</button>
-                    </form>
-                   </li> 
-              </ul></div>
-            </div>
-            </div>
-        </li> 
-
+         
+        <div class="border border-primary col-md-4">
+            <div class"row">
+                    <div>${student.name} ${student.last_name} ${changeStatusColor(student.status)}</div>                                               
+                    <button type="button" class="btn btn-outline-info " id="addbtn" ${addCoursesToStudent()}>AddCourses</button>
+                    <button type="button" class="btn btn-outline-info " id="Editbtn" ${editInformation()}>Edit Info</button>
+            </div> 
+        </div>    
 `;
 
 }
+
 
 //  Fetching student data
 
@@ -99,8 +117,12 @@ function mystudentData() {
      fetchData(`https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json`)
      .then(data =>{ 
 
+<<<<<<< HEAD
+        // console.log(data)
+=======
         console.log(data)
 
+>>>>>>> c3608df9cc8ea2e29aa737c5cb1aa89fd0f8de4d
         students = data;
         studentList.innerHTML = `
         ${data.map(studentToList).join('')}
