@@ -3,8 +3,6 @@ let courseBtn = document.getElementById('coursesButton');
 let newStudentBtn = document.getElementById('new_studentButton');
 let resultsContainer = document.getElementById('results');
 let modal =document.getElementById('coursesModal');
-
-
 function fetchData(url, keyName = '') {
     return fetch(url)
                .then(res => res.json())
@@ -14,14 +12,6 @@ function fetchData(url, keyName = '') {
     })
 }
 
-function getStudents() {
-    if (!localStorage.getItem('students')) {
-        fetchData('https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json', 'students')
-            .finally(listStudents);
-    } else {
-        listStudents();
-    }
-}
 
 // clears search results container
 function clearContainer() {
@@ -123,6 +113,14 @@ function studentstemplates(student) {
 `;
 }
 
+function getStudents() {
+    if (!localStorage.getItem('students')) {
+        fetchData('https://code-the-dream-school.github.io/JSONStudentsApp.github.io/Students.json', 'students')
+            .finally(listStudents);
+    } else {
+        listStudents();
+    }
+}
 
 
 
