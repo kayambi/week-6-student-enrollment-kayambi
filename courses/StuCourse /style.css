@@ -1,0 +1,92 @@
+.table
+{
+    background:white;
+}
+
+.course
+{
+    background:green;
+}
+
+.active 
+{
+    color:green;
+}
+
+.nonactive 
+{
+    color:''
+}
+
+#list-items
+{
+    margin: 15px;;
+}
+
+li span
+{
+    display: block;
+}
+
+.list-group-horizontal
+{
+    display: inline-block;
+}
+
+.dot 
+{
+    height: 20px;
+    width: 20px;
+    background-color:green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.doty 
+{
+    background-color:darkcyan;
+    border-radius: 30%;
+    display: inline-block;
+    color: white;
+    margin-left: 5px;
+}
+
+#list-item
+{
+    list-style-type: none;
+    padding: 0px;
+}
+
+#button-div
+{
+    margin: 5px 0px 15px;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0px 0px 18px;
+}
+
+.student-group
+{
+    padding: 0px;
+}
+
+#name-col
+{
+    margin-bottom: 0px;
+}
+
+.students-list
+{
+    padding: 10px;
+}
+
+#fullAlert
+{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 12px;
+}
