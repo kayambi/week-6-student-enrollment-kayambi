@@ -17,6 +17,62 @@
   color:green;
 }
 .nonactive {
+  color:''
+}
+.container{
+  display: block;
+}
+
+.list-group{
+  display: block;
+}
+
+li span{
+  display: block;
+} 
+.list-group-horizontal{
+  display: inline-block;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color:green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.doty {
+  height: 20px;
+  width: 20px;
+  background-color:red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+
+
+/* 
+
+.container{
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  text-align: center;
+
+}
+
+.table{
+  background:white;
+}
+
+.course{
+  background:green;
+}
+.active {
+  color:green;
+}
+.nonactive {
   color:red;
 }
 .container{
@@ -59,4 +115,4 @@ li span{
 .student-courses:hover {
   color: skyblue;
   cursor: pointer;
-}
+} */
